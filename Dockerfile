@@ -106,6 +106,14 @@ RUN conda install --yes openmm matplotlib && \
 #RUN conda install -c conda-forge nglview 
 #RUN jupyter labextension install nglview-js-widgets
 
+RUN conda install --yes pytorch torchvision cudatoolkit=10.2 -c pytorch && \
+    rm -rf /home/$NB_USER/.cache/yarn && \
+    rm -rf /home/$NB_USER/.node-gyp && \
+    pip install pyro-ppl && \
+    pip install gpytorch && \
+    fix-permissions $CONDA_DIR && \
+    fix-permissions /home/$NB_USER
+
 ##########################################
 # Install Tini
 RUN conda install --quiet --yes tini && \
