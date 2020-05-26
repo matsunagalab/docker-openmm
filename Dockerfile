@@ -19,6 +19,7 @@ RUN apt-get update \
     locales \
     fonts-liberation \
     run-one \
+    csh \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -93,6 +94,7 @@ RUN cd /tmp && \
 USER root
 
 #RUN conda install --yes -c omnia -c conda-forge openmm openmmtools matplotlib && \
+#RUN conda install --yes openmm openmmforcefields matplotlib && \
 RUN conda install --yes openmm matplotlib && \
     rm -rf /home/$NB_USER/.cache/yarn && \
     rm -rf /home/$NB_USER/.node-gyp && \
