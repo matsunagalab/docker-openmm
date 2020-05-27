@@ -94,7 +94,7 @@ USER root
 
 #RUN conda install --yes -c omnia -c conda-forge openmm openmmtools matplotlib && \
 #RUN conda install --yes openmm openmmforcefields matplotlib && \
-RUN conda install --yes openmm matplotlib && \
+RUN conda install --yes openmm=7.4.1 matplotlib && \
     rm -rf /home/$NB_USER/.cache/yarn && \
     rm -rf /home/$NB_USER/.node-gyp && \
     pip install nglview && \
